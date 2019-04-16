@@ -128,6 +128,12 @@ func (p Plugin) Exec() error {
 
 	start := time.Now()
 
+	if stack == nil {
+		fmt.Printf("stack is nil, so not deployed for now\n")
+	} else {
+		fmt.Printf("stack found! need to update, stack endpoint: %d , requestet endpoint: %d \n", stack.EndpointID, endpoint.Id)
+	}
+
 	if stack != nil && stack.EndpointID == endpoint.Id {
 		fmt.Printf("Updating stack \"%s\"...", stack.Name)
 		if stack_config != "" {
